@@ -33,6 +33,11 @@ class SQLiteTest(Command):
         os.environ['TRYTOND_DATABASE_URI'] = 'sqlite://'
         os.environ['DB_NAME'] = ':memory:'
 
+        from trytond.config import config
+        # Add elastic search test configuration
+        config.add_section('elastic_search')
+        config.set('elastic_search', 'server_uri', 'localhost:9200')
+
         from tests import suite
         test_result = unittest.TextTestRunner(verbosity=3).run(suite())
 
@@ -61,6 +66,11 @@ class PostgresTest(Command):
 
         os.environ['TRYTOND_DATABASE_URI'] = 'postgresql://'
         os.environ['DB_NAME'] = 'test_' + str(int(time.time()))
+
+        from trytond.config import config
+        # Add elastic search test configuration
+        config.add_section('elastic_search')
+        config.set('elastic_search', 'server_uri', 'localhost:9200')
 
         from tests import suite
         test_result = unittest.TextTestRunner(verbosity=3).run(suite())

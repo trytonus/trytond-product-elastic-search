@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+        <!-- Create a document for mapping products -->
+        <record model="elasticsearch.document.type" id="es_product_document">
+            <field name="name">Products</field>
+            <field name="model" search="[('model', '=', 'product.product')]"/>
+            <field name="mapping">
+              {
+                  "properties": {
+                      "code": {
+                          "type": "string",
+                          "analyzer": "simple"
+                      },
+                      "name": {
+                          "fields": {
+                              "metaphone": {
+                                  "type": "string",
+                                  "analyzer": "name_metaphone"
+                              },
+                              "partial": {
+                                  "search_analyzer": "full_name",
+                                  "index_analyzer": "partial_name",
+                                  "type": "string"
+                              }
+                          },
+                          "type": "string",
+                          "analyzer": "full_name"
+                      }
+                  }
+              }
+            </field>
+        </record>
+    </data>
+</tryton>
