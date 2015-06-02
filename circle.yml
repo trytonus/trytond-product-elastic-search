@@ -1,0 +1,14 @@
+machine:
+  services:
+    - docker
+  python:
+    version: 2.7.8
+dependencies:
+  override:
+    - docker pull openlabs/docker-elasticsearch
+test:
+  override:
+    - case $CIRCLE_NODE_INDEX in 0) make test-sqlite ;; 1) make test-postgres ;; esac:
+        parallel: True
+  post:
+    - make test-flake8
