@@ -1,10 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-    tests/__init__.py
-
-    :copyright: (c) 2015 by Openlabs Technologies & Consulting (P) Limited
-    :license: BSD, see LICENSE for more details.
-"""
 import unittest
 
 import trytond.tests.test_tryton
