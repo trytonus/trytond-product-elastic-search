@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-    product.py
-    :copyright: (c) 2015 by Openlabs Technologies & Consulting (P) Limited
-    :license: BSD, see LICENSE for more details.
-"""
 from pyes import BoolQuery, MatchQuery
 
 from trytond.pool import Pool, PoolMeta
