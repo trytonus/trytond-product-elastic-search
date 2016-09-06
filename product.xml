@@ -31,5 +31,13 @@
               }
             </field>
         </record>
+        <record model="ir.model.access" id="access_backlog_group_product_admin">
+            <field name="model" search="[('model', '=', 'elasticsearch.index_backlog')]"/>
+            <field name="group" ref="product.group_product_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
     </data>
 </tryton>
